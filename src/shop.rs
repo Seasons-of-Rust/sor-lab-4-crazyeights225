@@ -30,14 +30,14 @@ impl Shop {
         let mut cnt: i32 = 0;
         for x in &self.cards {
             for y in &other.cards {
-                 match &x.fight(&y) {
+                 match &x.fight(y) {
                      FightResult::Win => cnt += 1,
                      FightResult::Loss => cnt -= 1,
                      _ => ()
                  }
             }
         }
-        
+
         match cnt {
             0 => FightResult::Tie,
             c if c > 0 => FightResult::Win,
